@@ -18,8 +18,10 @@ const images = [
 
 const ulRef = document.querySelector("#gallery");
 ulRef.classList.add("ul-style");
-
-const arrLiImg = images.map((img) => {
-  const sting = `<li><img src="${img.url}" alt="${img.alt}" width = "300" height = "200"></li>`;
-  ulRef.insertAdjacentHTML("afterbegin", sting);
+let arrLi = [];
+images.map((img) => {
+  arrLi.push(
+    `<li><img src="${img.url}" alt="${img.alt}" width = "300" height = "200"></li>`
+  );
 });
+ulRef.insertAdjacentHTML("afterbegin", [...arrLi]);
